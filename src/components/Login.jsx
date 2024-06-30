@@ -66,11 +66,10 @@ export default function Login() {
       placeholder="Enter your password"
     />
   </div>
-  <div className="flex-grow"></div>
   <button
     type="button"
     onClick={handleTogglePassword}
-    className="text-gray-400 text-2xl me-3"
+    className="text-gray-400 text-2xl ms-40 sm:ms-7"
   >
     <i className={hidePassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}></i>
   </button>

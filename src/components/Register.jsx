@@ -5,7 +5,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!validateEmail(email)) {
@@ -24,8 +24,11 @@ export default function Register() {
       );
       return;
     }
+    if (password.length == 0 || email.length == 0 || phone.length == 0) {
+      alert("Please fill all required fields.");
+    }
     console.log(email, password, phone);
-    // Aquí podrías enviar los datos del formulario al backend o realizar otra acción.
+    // Aqui você pode enviar os dados do formulário para o backend ou realizar outra ação.
   };
 
   const handleTogglePassword = () => {
@@ -33,20 +36,20 @@ export default function Register() {
   };
 
   const validateEmail = (email) => {
-    // Expresión regular para validar un email
+    // Expressão regular para validar um email
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
   };
 
   const validatePassword = (password) => {
-    // Expresión regular para validar la contraseña
+    // Expressão regular para validar uma senha
     const re =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return re.test(password);
   };
 
   const validatePhone = (phone) => {
-    // Expresión regular para validar un número de teléfono de Brasil
+    // Expressão regular para validar um telefone
     const re = /^\(?([0-9]{2})\)?([0-9]{4,5})[-.]?([0-9]{4})$/;
     return re.test(phone);
   };
@@ -54,7 +57,7 @@ export default function Register() {
   return (
     <div className="flex justify-center h-screen">
       <div className="content">
-      <div className="bg-img"></div>
+        <div className="bg-img"></div>
         <header className="header cursor-default mt-6">
           <Link to={"/"}>
             <button className="backButton mt-4 bg-gray-400 px-2 py-1 text-white rounded-full">
@@ -112,11 +115,10 @@ export default function Register() {
                 placeholder="Create password"
               />
             </div>
-            <div className="flex-grow"></div>
             <button
               type="button"
               onClick={handleTogglePassword}
-              className="text-gray-400 text-2xl me-3"
+              className="text-gray-400 text-2xl ms-40 sm:ms-7"
             >
               <i
                 className={
