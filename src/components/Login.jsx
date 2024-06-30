@@ -52,28 +52,36 @@ export default function Login() {
             </div>
           </div>
 
-          <div className="flex items-center border border-gray-200 rounded-lg p-3 mt-2 h-full">
-  <div className="ms-3 text-gray-300 text-2xl me-6">
-    <i className="fa-solid fa-lock"></i>
-  </div>
-  <div className="flex flex-col me-6">
-    <label>Password</label>
-    <input
-      className="focus:outline-none text-gray-500"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      type={hidePassword ? "password" : "text"}
-      placeholder="Enter your password"
-    />
-  </div>
-  <button
-    type="button"
-    onClick={handleTogglePassword}
-    className="text-gray-400 text-2xl"
-  >
-    <i className={hidePassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}></i>
-  </button>
-</div>
+          <div className="flex items-center justify-between border border-gray-200 rounded-lg p-3 mt-2 h-full">
+            <div className="flex items-center">
+            <div className="ms-3 text-gray-300 text-2xl me-6">
+              <i className="fa-solid fa-lock"></i>
+            </div>
+            <div className="flex flex-col me-6">
+              <label>Password</label>
+              <input
+                className="focus:outline-none text-gray-500"
+                style={{width: "12vw"}}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type={hidePassword ? "password" : "text"}
+                placeholder="Create password"
+              />
+            </div>
+
+            </div>
+            <button
+              type="button"
+              onClick={handleTogglePassword}
+              className="text-gray-400 text-2xl"
+            >
+              <i
+                className={
+                  hidePassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"
+                }
+              ></i>
+            </button>
+          </div>
           <button
             type="submit"
             className="buttonOrange w-full py-5 my-4 text-white rounded-lg"
