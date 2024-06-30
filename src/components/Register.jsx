@@ -1,43 +1,65 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+
 export default function Register() {
   const [hidePassword, setHidePassword] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (password.length === 0 || email.length === 0 || phone.length === 0) {
+      //alert("Please fill all required fields.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill all required fields!",
+      });
+    }
     if (!validateEmail(email)) {
-      alert("Please enter a valid email address.");
+      //alert("Please enter a valid email address.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please enter a valid email address!",
+      });
       return;
     }
     if (!validatePassword(password)) {
-      alert(
-        "Password must have at least 8 characters, one number, one symbol, and one uppercase letter."
-      );
+      //alert("Password must have at least 8 characters, one number, one symbol, and one uppercase letter.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password must have at least 8 characters, one number, one symbol, and one uppercase letter.",
+      });
       return;
     }
     if (!validatePhone(phone)) {
-      alert(
-        "Please enter a valid Brazilian phone number (example: 48992259119)."
-      );
+      //alert("Please enter a valid phone number.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please enter a valid phone number!",
+      });
       return;
     }
-    if (password.length == 0 || email.length == 0 || phone.length == 0) {
-      alert("Please fill all required fields.");
-    }
-    console.log(email, password, phone);
+    Swal.fire({
+      icon: "success",
+      title: "Good!",
+      text: "You have successfully registered!",
+    });
     // Aqui você pode enviar os dados do formulário para o backend ou realizar outra ação.
   };
 
   const handleTogglePassword = () => {
     setHidePassword(!hidePassword);
   };
-
   const validateEmail = (email) => {
-    // Expressão regular para validar um email
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Expresión regular para validar un email
+    const re =
+      /^[a-zA-Z0-9](\.?[a-zA-Z0-9]){1,}@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
     return re.test(String(email).toLowerCase());
   };
 
@@ -49,7 +71,6 @@ export default function Register() {
   };
 
   const validatePhone = (phone) => {
-    // Expressão regular para validar um telefone
     const re = /^\(?([0-9]{2})\)?([0-9]{4,5})[-.]?([0-9]{4})$/;
     return re.test(phone);
   };
@@ -103,20 +124,19 @@ export default function Register() {
           </div>
           <div className=" flex items-center justify-between border border-gray-200 rounded-lg p-3 mt-2 h-full">
             <div className="flex items-center">
-            <div className="ms-3 text-gray-300 text-2xl me-6">
-              <i className="fa-solid fa-lock"></i>
-            </div>
-            <div className="flex flex-col me-6">
-              <label>Password</label>
-              <input
-                className="passInput focus:outline-none text-gray-500"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                type={hidePassword ? "password" : "text"}
-                placeholder="Create password"
-              />
-            </div>
-
+              <div className="ms-3 text-gray-300 text-2xl me-6">
+                <i className="fa-solid fa-lock"></i>
+              </div>
+              <div className="flex flex-col me-6">
+                <label>Password</label>
+                <input
+                  className="passInput focus:outline-none text-gray-500"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type={hidePassword ? "password" : "text"}
+                  placeholder="Create password"
+                />
+              </div>
             </div>
             <button
               type="button"

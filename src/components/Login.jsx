@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [hidePassword, setHidePassword] = useState(true);
@@ -8,16 +9,56 @@ export default function Login() {
 
   const handleSubmit = function (event) {
     event.preventDefault();
-    if (!email || !password) {
-      alert("Please fill in both email and password fields.");
+    if (password.length === 0 || email.length === 0) {
+      //alert("Please fill all required fields.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill all required fields!",
+      });
+    }
+    if (!validateEmail(email)) {
+      //alert("Please enter a valid email address.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please enter a valid email address!",
+      });
       return;
     }
-    console.log(email, password);
+    if (!validatePassword(password)) {
+      //alert("Password must have at least 8 characters, one number, one symbol, and one uppercase letter.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password must have at least 8 characters, one number, one symbol, and one uppercase letter.",
+      });
+      return;
+    }
+    //alert("Login successful.");
+    Swal.fire({
+      icon: "success",
+      title: "Good!",
+      text: "Login successful!",
+    });
   };
-  const handleTogglePassword = function(event){
+  const handleTogglePassword = function (event) {
     event.preventDefault();
-    setHidePassword(!hidePassword)
-  }
+    setHidePassword(!hidePassword);
+  };
+  const validateEmail = (email) => {
+    // Expresión regular para validar un email
+    const re =
+      /^[a-zA-Z0-9](\.?[a-zA-Z0-9]){1,}@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const validatePassword = (password) => {
+    // Expressão regular para validar uma senha
+    const re =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return re.test(password);
+  };
 
   return (
     <div className="flex justify-center h-screen">
@@ -54,20 +95,19 @@ export default function Login() {
 
           <div className="flex items-center justify-between border border-gray-200 rounded-lg p-3 mt-2 h-full">
             <div className="flex items-center">
-            <div className="ms-3 text-gray-300 text-2xl me-6">
-              <i className="fa-solid fa-lock"></i>
-            </div>
-            <div className="flex flex-col me-6">
-              <label>Password</label>
-              <input
-                className="passInput focus:outline-none text-gray-500"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                type={hidePassword ? "password" : "text"}
-                placeholder="Create password"
-              />
-            </div>
-
+              <div className="ms-3 text-gray-300 text-2xl me-6">
+                <i className="fa-solid fa-lock"></i>
+              </div>
+              <div className="flex flex-col me-6">
+                <label>Password</label>
+                <input
+                  className="passInput focus:outline-none text-gray-500"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type={hidePassword ? "password" : "text"}
+                  placeholder="Create password"
+                />
+              </div>
             </div>
             <button
               type="button"
