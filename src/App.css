@@ -53,9 +53,16 @@
   mix-blend-mode: multiply;
 }
 
+.passInput{
+  width: 40vw;
+}
+
 @media (min-width: 576px) { 
   .content {
     width: 360px;
     box-sizing: border-box;
+  }
+  .passInput{
+    width: 10vw;
   }
 }

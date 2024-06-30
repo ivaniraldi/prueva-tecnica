@@ -60,7 +60,7 @@ export default function Login() {
             <div className="flex flex-col me-6">
               <label>Password</label>
               <input
-                className="focus:outline-none text-gray-500"
+                className="passInput focus:outline-none text-gray-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 type={hidePassword ? "password" : "text"}

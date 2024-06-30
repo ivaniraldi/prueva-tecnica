@@ -101,7 +101,7 @@ export default function Register() {
               />
             </div>
           </div>
-          <div className="flex items-center justify-between border border-gray-200 rounded-lg p-3 mt-2 h-full">
+          <div className=" flex items-center justify-between border border-gray-200 rounded-lg p-3 mt-2 h-full">
             <div className="flex items-center">
             <div className="ms-3 text-gray-300 text-2xl me-6">
               <i className="fa-solid fa-lock"></i>
@@ -109,7 +109,7 @@ export default function Register() {
             <div className="flex flex-col me-6">
               <label>Password</label>
               <input
-                className="focus:outline-none text-gray-500"
+                className="passInput focus:outline-none text-gray-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 type={hidePassword ? "password" : "text"}
