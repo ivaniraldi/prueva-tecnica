@@ -118,7 +118,7 @@ export default function Register() {
             <button
               type="button"
               onClick={handleTogglePassword}
-              className="text-gray-400 text-2xl ms-40 sm:ms-7"
+              className="text-gray-400 text-2xl ms-7"
             >
               <i
                 className={

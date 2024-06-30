@@ -69,7 +69,7 @@ export default function Login() {
   <button
     type="button"
     onClick={handleTogglePassword}
-    className="text-gray-400 text-2xl ms-40 sm:ms-7"
+    className="text-gray-400 text-2xl ms-7"
   >
     <i className={hidePassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}></i>
   </button>
