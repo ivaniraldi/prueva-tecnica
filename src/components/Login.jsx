@@ -36,7 +36,7 @@ export default function Login() {
           </h4>
         </header>
         <form onSubmit={handleSubmit}>
-          <div className="flex items-center border border-gray-200 rounded-lg p-3 mt-6">
+          <div className="flex items-center border border-gray-200 rounded-lg p-3 mt-6 h-full">
             <div className="ms-3 text-gray-300 text-2xl me-6">
               <i className="fa-solid fa-envelope"></i>
             </div>
@@ -52,7 +52,7 @@ export default function Login() {
             </div>
           </div>
 
-          <div className="flex items-center border border-gray-200 rounded-lg p-3 mt-2">
+          <div className="flex items-center border border-gray-200 rounded-lg p-3 mt-2 h-full">
   <div className="ms-3 text-gray-300 text-2xl me-6">
     <i className="fa-solid fa-lock"></i>
   </div>
@@ -69,7 +69,7 @@ export default function Login() {
   <button
     type="button"
     onClick={handleTogglePassword}
-    className="text-gray-400 text-2xl ms-4 sm:ms-7"
+    className="text-gray-400 text-2xl"
   >
     <i className={hidePassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}></i>
   </button>
