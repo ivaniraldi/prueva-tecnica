@@ -1,0 +1,61 @@
+.buttonOrange{
+  background-color: #BC8363;
+  transition: all 0.2s linear;
+}
+.backButton:hover{
+  -webkit-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.15);
+  -moz-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.15);
+  box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.15);
+}
+
+.buttonOrange:hover{
+  -webkit-box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.35);
+  box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.35);
+}
+
+.textOrange{
+  color: #BC8363;
+}
+.socialButton{
+  -webkit-box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.10);
+  -moz-box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.10);
+  box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.10);
+  border-radius: 16px;
+  transition: all 0.2s linear;
+}
+
+.socialButton:hover{
+  -webkit-box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.23);
+  -moz-box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.23);
+  box-shadow: 2px 2px 20px 0px rgba(0,0,0,0.23);
+}
+.hideTextSel{
+  user-select: none;
+}
+.content {
+  width: 90vw;
+  box-sizing: border-box;
+}
+.bg-img{
+  height: 800px;
+  width: 335px;
+  background-image: url("./assets/img/header.jpeg");
+  background-size: cover;
+  transform: scaleY(-1);
+  position: absolute;
+  z-index: -1;
+  mask-image: linear-gradient(to left, black, transparent 95%);
+  filter: grayscale();
+  top: -255px;
+  opacity: 0.4;
+  right: 0;
+  mix-blend-mode: multiply;
+}
+
+@media (min-width: 576px) { 
+  .content {
+    width: 360px;
+    box-sizing: border-box;
+  }
+}
