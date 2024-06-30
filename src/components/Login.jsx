@@ -61,7 +61,6 @@ export default function Login() {
               <label>Password</label>
               <input
                 className="focus:outline-none text-gray-500"
-                style={{width: "12vw"}}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 type={hidePassword ? "password" : "text"}
